@@ -27,7 +27,7 @@ namespace BookShop.Model.Models
         public string Image { get; set; }
 
         [Column(TypeName = "xml")]
-        public XElement MoreImages { get; set; }
+        public string MoreImages { get; set; }
 
         public decimal Price { get; set; }
 
