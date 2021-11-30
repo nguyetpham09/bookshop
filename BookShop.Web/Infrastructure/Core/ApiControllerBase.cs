@@ -1,5 +1,6 @@
 ﻿using BookShop.Model.Models;
 using BookShop.Service;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
@@ -13,6 +14,9 @@ namespace BookShop.Web.Infrastructure.Core
     {
         private readonly IErrorService _errorService;
 
+        public ApiControllerBase()
+        {
+        }
         public ApiControllerBase(IErrorService errorService)
         {
             _errorService = errorService;

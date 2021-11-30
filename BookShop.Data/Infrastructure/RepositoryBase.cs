@@ -84,8 +84,8 @@ namespace BookShop.Data.Infrastructure
                     query = query.Include(include);
                 return query.AsQueryable();
             }
-
-            return dataContext.Set<T>().AsQueryable();
+            var data = dataContext.Set<T>().AsQueryable();
+            return data;
         }
 
         public T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null)
