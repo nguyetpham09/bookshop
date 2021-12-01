@@ -1,0 +1,70 @@
+﻿using BookShop.Web.App_Start;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
+
+namespace TeduShop.Web.Api
+{
+    [Microsoft.AspNetCore.Mvc.Route("api/account")]
+    [ApiController]
+    public class AccountController : ApiController
+    {
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
+
+        public AccountController()
+        {
+        }
+
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
+
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        [Microsoft.AspNetCore.Authorization.AllowAnonymous]
+        [Microsoft.AspNetCore.Mvc.Route("login")]
+        public async Task<HttpResponseMessage> Login(HttpRequestMessage request, string userName, string password, bool rememberMe)
+        {
+            if (!ModelState.IsValid)
+            {
+                return request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+            // This doesn't count login failures towards account lockout
+            // To enable password failures to trigger account lockout, change to shouldLockout: true
+            var result = await SignInManager.PasswordSignInAsync(userName, password, rememberMe, shouldLockout: false);
+            return request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+
+    }
+}

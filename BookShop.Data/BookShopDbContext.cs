@@ -1,9 +1,10 @@
 ﻿using BookShop.Model.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
 namespace BookShop.Data
 {
-    public class BookShopDbContext : DbContext
+    public class BookShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public BookShopDbContext() : base("BookShopConnection")
         {
@@ -46,9 +47,15 @@ namespace BookShop.Data
 
         public DbSet<Error> Errors { get; set; }
 
+        public static BookShopDbContext Create()
+        {
+            return new BookShopDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }
