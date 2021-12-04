@@ -4,7 +4,7 @@
   "libraries": [
     {
       "library": "angular.js@1.8.2",
-      "destination": "Scripts/plugins/",
+      "destination": "Assets/admin/libs/",
       "files":[]
     }
   ]
