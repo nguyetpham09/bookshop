@@ -315,12 +315,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\app.route.js" />
+    <Content Include="app\components\products\product.route.js" />
+    <Content Include="app\components\products\productAddController.js" />
+    <Content Include="app\components\products\productAddView.html" />
+    <Content Include="app\components\products\productEditController.js" />
+    <Content Include="app\components\products\productEditView.html" />
+    <Content Include="app\components\products\productListController.js" />
+    <Content Include="app\components\products\productListView.html" />
+    <Content Include="Assets\admin\libs\angular-csp.css" />
+    <Content Include="Assets\admin\libs\angular-csp.min.css" />
+    <Content Include="Assets\admin\libs\angular.js" />
+    <Content Include="Assets\admin\libs\angular.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\plugins\angular-csp.css" />
-    <Content Include="Scripts\plugins\angular-csp.min.css" />
-    <Content Include="Scripts\plugins\angular.js" />
-    <Content Include="Scripts\plugins\angular.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -331,10 +340,18 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\components\orders\" />
+    <Folder Include="app\components\product_categories\" />
+    <Folder Include="app\components\roles\" />
+    <Folder Include="app\components\users\" />
+    <Folder Include="app\shared\footer\" />
+    <Folder Include="app\shared\navigation\" />
+    <Folder Include="app\shared\services\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\admin\" />
+    <Folder Include="Assets\admin\css\" />
+    <Folder Include="Assets\admin\img\" />
+    <Folder Include="Assets\admin\js\" />
     <Folder Include="Assets\client\" />
-    <Folder Include="Scripts\spa\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -343,8 +360,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include=".bin\node.cmd" />
     <Content Include="libman.json" />
+    <Content Include="Assets\admin\libs\angular.min.js.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\plugins\angular.min.js.map" />
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
