@@ -1,7 +1,11 @@
 ﻿/// <reference path="../assets/admin/libs/angular/angular.js" />
 
 (function () {
-    angular.module('bookshop', ['bookshop.products', 'bookshop.common']).config(config);
+    angular.module('bookshop',
+        ['bookshop.products',
+         'bookshop.product_categories',
+         'bookshop.common'])
+        .config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
@@ -13,4 +17,4 @@
         });
         $urlRouterProvider.otherwise('/admin')
     }
-})()
+})();

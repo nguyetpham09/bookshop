@@ -1,30 +1,19 @@
-﻿using BookShop.Model.Abstract;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 
-namespace BookShop.Model.Models
+namespace BookShop.Web.Models
 {
-    [Table("Products")]
-    public class Product : Auditable
+    public class ProductViewModel
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(256)]
         public string Name { get; set; }
 
-        [Required]
-        [MaxLength(256)]
         public string Alias { get; set; }
 
         public int CategoryId { get; set; }
 
-        [MaxLength(256)]
         public string Image { get; set; }
 
-        [Column(TypeName = "xml")]
         public string MoreImages { get; set; }
 
         public decimal Price { get; set; }
@@ -33,7 +22,6 @@ namespace BookShop.Model.Models
 
         public int? Warranty { get; set; }
 
-        [MaxLength(500)]
         public string Description { get; set; }
 
         public string Content { get; set; }
@@ -44,7 +32,20 @@ namespace BookShop.Model.Models
 
         public int? ViewCount { get; set; }
 
-        [ForeignKey("CategoryId")]
-        public virtual ProductCategory ProductCategory { get; set; }
+        public DateTime CreatedDate { get; set; }
+
+        public string CreatedBy { get; set; }
+
+        public DateTime? UpdatedDate { get; set; }
+
+        public string UpdatedBy { get; set; }
+
+        public string MetaKeyword { get; set; }
+
+        public string MetaDescription { get; set; }
+
+        public bool Status { get; set; }
+
+        public ProductCategoryViewModel ProductCategory { get; set; }
     }
 }
