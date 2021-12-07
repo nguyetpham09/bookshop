@@ -3,6 +3,7 @@ using BookShop.Service;
 using BookShop.Web.Infrastructure.Core;
 using BookShop.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -27,13 +28,13 @@ namespace BookShop.Web.Api
 
         [Route("getall")]
         [HttpGet]
-        public HttpResponseMessage Get(HttpRequestMessage request, int page, int pageSize)
+        public HttpResponseMessage Get(HttpRequestMessage request,string keyword, int page, int pageSize)
         {
             return CreateHttpResponse(request, () =>
             {
                 var totalRow = 0;
 
-                var productCategory = _productCategoryService.GetAll();
+                var productCategory = _productCategoryService.GetAll(keyword);
 
                 totalRow = productCategory.Count();
 
@@ -46,7 +47,7 @@ namespace BookShop.Web.Api
                     Items = productCategoryVm,
                     Page = page,
                     TotalCount = totalRow,
-                    TotalPages = totalRow / pageSize
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
                 };
 
                 HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, pagination);
