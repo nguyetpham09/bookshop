@@ -14,7 +14,7 @@
             var config = {
                 params: {
                     page: page,
-                    pageSize: 20
+                    pageSize: 2
                 }
             }
             apiService.get('/api/productcategory/getall', config, function (result) {
