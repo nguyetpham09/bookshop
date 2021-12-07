@@ -38,6 +38,16 @@
         </div>
         <div class="card-body">
             <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="keyword" placeholder="Search for ..."/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" ng-click="search()" type="button">Tìm kiếm</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <table class="table table-bordered">
                         <thead>
@@ -59,7 +69,12 @@
                                     <button class="btn btn-sm btn-primary"><i class="fa fa-pencil-alt"></i></button>
                                     <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                 </td>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">Tổng số bản ghi: {{totalCount}}</td>
                             </tr>
+                        </tfoot>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -67,7 +82,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            <!--<pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getProductCagories(page)"></pager-directive>-->
+            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getProductCagories(page)"></pager-directive>
         </div>
         <!-- /.card-footer-->
     </div>
