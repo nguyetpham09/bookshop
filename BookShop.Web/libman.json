@@ -36,6 +36,11 @@
       "library": "font-awesome@5.15.4",
       "destination": "Assets/admin/libs/fontawesome",
       "files": []
+    },
+    {
+      "library": "toastr.js@2.1.4",
+      "destination": "Assets/admin/libs/toastr",
+      "files": []
     }
   ]
 }
