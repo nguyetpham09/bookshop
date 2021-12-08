@@ -14,7 +14,7 @@ namespace BookShop.Web.Infrastructure.Extension
             postCategory.ParentId = postCategoryViewModel.ParentId;
             postCategory.Alias = postCategoryViewModel.Alias;
             postCategory.Description = postCategoryViewModel.Description;
-            postCategory.CreatedDate = postCategoryViewModel.CreatedDate;
+            postCategory.CreatedDate = System.DateTime.UtcNow;
             postCategory.CreatedBy = postCategoryViewModel.CreatedBy;
             postCategory.UpdatedDate = postCategoryViewModel.UpdatedDate;
             postCategory.UpdatedBy = postCategoryViewModel.UpdatedBy;
@@ -36,12 +36,31 @@ namespace BookShop.Web.Infrastructure.Extension
             post.HotFlag = postViewModel.HotFlag;
             post.ViewCount = postViewModel.ViewCount;
             post.CreatedBy = postViewModel.CreatedBy;
-            post.CreatedDate = postViewModel.CreatedDate;
+            post.CreatedDate = System.DateTime.UtcNow;
             post.MetaDescription = postViewModel.MetaDescription;
             post.MetaKeyword = postViewModel.MetaKeyword;
             post.UpdatedBy = postViewModel.UpdatedBy;
             post.UpdatedDate = postViewModel.UpdatedDate;
             post.Status = postViewModel.Status;
         }
+
+        public static void UpdateProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCategoryViewModel)
+        {
+            productCategory.Id = productCategoryViewModel.Id;
+            productCategory.Image = productCategoryViewModel.Image;
+            productCategory.HomeFlag = productCategoryViewModel.HomeFlag;
+            productCategory.DisplayOrder = productCategoryViewModel.DisplayOrder;
+            productCategory.ParentId = productCategoryViewModel.ParentId;
+            productCategory.Alias = productCategoryViewModel.Alias;
+            productCategory.Description = productCategoryViewModel.Description;
+            productCategory.CreatedDate = System.DateTime.UtcNow;
+            productCategory.CreatedBy = productCategoryViewModel.CreatedBy;
+            productCategory.UpdatedDate = productCategoryViewModel.UpdatedDate;
+            productCategory.UpdatedBy = productCategoryViewModel.UpdatedBy;
+            productCategory.MetaKeyword = productCategoryViewModel.MetaKeyword;
+            productCategory.MetaDescription = productCategoryViewModel.MetaDescription;
+            productCategory.Status = productCategoryViewModel.Status;
+        }
+
     }
 }
