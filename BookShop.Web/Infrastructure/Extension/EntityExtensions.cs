@@ -8,6 +8,7 @@ namespace BookShop.Web.Infrastructure.Extension
         public static void UpdatePostCategory(this PostCategory postCategory, PostCategoryViewModel postCategoryViewModel)
         {
             postCategory.Id = postCategoryViewModel.Id;
+            postCategory.Name = postCategoryViewModel.Name;
             postCategory.Image = postCategoryViewModel.Image;
             postCategory.HomeFlag = postCategoryViewModel.HomeFlag;
             postCategory.DisplayOrder = postCategoryViewModel.DisplayOrder;
@@ -47,13 +48,14 @@ namespace BookShop.Web.Infrastructure.Extension
         public static void UpdateProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCategoryViewModel)
         {
             productCategory.Id = productCategoryViewModel.Id;
+            productCategory.Name = productCategoryViewModel.Name;
             productCategory.Image = productCategoryViewModel.Image;
             productCategory.HomeFlag = productCategoryViewModel.HomeFlag;
             productCategory.DisplayOrder = productCategoryViewModel.DisplayOrder;
             productCategory.ParentId = productCategoryViewModel.ParentId;
             productCategory.Alias = productCategoryViewModel.Alias;
             productCategory.Description = productCategoryViewModel.Description;
-            productCategory.CreatedDate = System.DateTime.UtcNow;
+            productCategory.CreatedDate = productCategoryViewModel.CreatedDate;
             productCategory.CreatedBy = productCategoryViewModel.CreatedBy;
             productCategory.UpdatedDate = productCategoryViewModel.UpdatedDate;
             productCategory.UpdatedBy = productCategoryViewModel.UpdatedBy;

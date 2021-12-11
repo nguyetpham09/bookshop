@@ -4,6 +4,7 @@ using BookShop.Service;
 using BookShop.Web.Infrastructure.Core;
 using BookShop.Web.Infrastructure.Extension;
 using BookShop.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -58,8 +59,26 @@ namespace BookShop.Web.Api
             });
         }
 
+        [Route("getallparent")]
+        [HttpGet]
+        
+        public HttpResponseMessage Get(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var productCategory = _productCategoryService.GetAll();
+
+                var productCategoryVm = Mapper.Map<List<ProductCategoryViewModel>>(productCategory);
+
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, productCategoryVm);
+
+                return response;
+            });
+        }
+
         [Route("create")]
         [HttpPost]
+        [AllowAnonymous]
         public HttpResponseMessage Create (HttpRequestMessage request, ProductCategoryViewModel productCategoryViewModel)
         {
             return CreateHttpResponse(request, () =>
