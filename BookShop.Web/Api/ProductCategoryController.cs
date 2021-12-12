@@ -18,6 +18,7 @@ namespace BookShop.Web.Api
     [Route("api/[controller]")]
     public class ProductCategoryController : ApiControllerBase
     {
+        #region Initialize
         private IProductCategoryService _productCategoryService;
 
         public ProductCategoryController()
@@ -27,6 +28,37 @@ namespace BookShop.Web.Api
         public ProductCategoryController(IErrorService errorService, IProductCategoryService productCategoryService) : base(errorService)
         {
             _productCategoryService = productCategoryService;
+        }
+        #endregion
+        [HttpGet]
+        [Route("{id}")]
+        public HttpResponseMessage GetById(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _productCategoryService.GetById(id);
+
+                var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+
+                return response;
+            });
+        }
+
+        [HttpGet]
+        [Route("getallparents")]
+        public HttpResponseMessage GetAllParents(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _productCategoryService.GetAll();
+
+                var responseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.Accepted, responseData);
+                return response;
+            });
         }
 
         [Route("getall")]
@@ -54,23 +86,6 @@ namespace BookShop.Web.Api
                 };
 
                 HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, pagination);
-
-                return response;
-            });
-        }
-
-        [Route("getallparent")]
-        [HttpGet]
-        
-        public HttpResponseMessage Get(HttpRequestMessage request)
-        {
-            return CreateHttpResponse(request, () =>
-            {
-                var productCategory = _productCategoryService.GetAll();
-
-                var productCategoryVm = Mapper.Map<List<ProductCategoryViewModel>>(productCategory);
-
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, productCategoryVm);
 
                 return response;
             });
