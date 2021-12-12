@@ -23,7 +23,7 @@
         }
 
         function loadParentCategory() {
-            apiService.get('api/productcategory/getallparent', null, function (result) {
+            apiService.get('api/category/getallparents', null, function (result) {
                 $scope.parentCategories = result.data;
                
             }, function () {
@@ -32,6 +32,5 @@
         }
 
         loadParentCategory();
-        /*AddProductCategory();*/
     }
 })(angular.module('bookshop.product_categories'))
