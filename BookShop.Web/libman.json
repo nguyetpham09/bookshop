@@ -41,6 +41,10 @@
       "library": "toastr.js@2.1.4",
       "destination": "Assets/admin/libs/toastr",
       "files": []
+    },
+    {
+      "library": "bootbox.js@5.5.2",
+      "destination": "Assets/admin/libs/bootbox",
+      "files": []
     }
-  ]
 }
