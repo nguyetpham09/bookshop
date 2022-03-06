@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BookShop.Model.Models
+namespace TeduShop.Model.Models
 {
     [Table("Tags")]
     public class Tag
@@ -9,14 +9,14 @@ namespace BookShop.Model.Models
         [Key]
         [MaxLength(50)]
         [Column(TypeName = "varchar")]
-        public string Id { get; set; }
+        public string ID { set; get; }
 
         [MaxLength(50)]
         [Required]
-        public string Name { get; set; }
+        public string Name { set; get; }
 
         [MaxLength(50)]
         [Required]
-        public string Type { get; set; }
+        public string Type { set; get; }
     }
 }

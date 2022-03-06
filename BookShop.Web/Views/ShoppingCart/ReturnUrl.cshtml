@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNet.Identity; 
+@{
+    ViewBag.Title = "Kết quả giao dịch";
+    Layout = "~/Views/Shared/Layouts.cshtml";
+}
+<div class="single_top">
+    <div class="single_grid">
+        <h3>@ViewBag.message</h3>
+        @using (Html.BeginForm("LogOut", "Account", FormMethod.Post, new { @id = "frmLogout" }))
+        {
+            if (Request.IsAuthenticated)
+            {
+                var userDetailUrl = "/lich-su-mua-hang-" + User.Identity.GetUserId() + ".html";
+                @Html.AntiForgeryToken()
+                <a class="acount-btn" href="@userDetailUrl">Lịch sử mua hàng</a>
+            }
+            else
+            {
+                <ul class="login">
+                    <li><a href="/dang-nhap.html"><span> </span>ĐĂNG NHẬP</a></li> |
+                    <li><a href="/dang-ky.html">ĐĂNG KÝ</a></li>
+                </ul>
+            }
+        }
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+

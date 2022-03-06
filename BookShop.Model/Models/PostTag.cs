@@ -1,23 +1,24 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BookShop.Model.Models
+namespace TeduShop.Model.Models
 {
     [Table("PostTags")]
     public class PostTag
     {
         [Key]
         [Column(Order = 1)]
-        public int PostId { get; set; }
+        public int PostID { set; get; }
 
         [Key]
-        [Column(TypeName = "varchar", Order = 2)]
-        public string TagId { get; set; }
+        [Column(TypeName = "varchar",Order =2)]
+        [MaxLength(50)]
+        public string TagID { set; get; }
 
-        [ForeignKey("PostId")]
-        public virtual Post Post { get; set; }
+        [ForeignKey("PostID")]
+        public virtual Post Post { set; get; }
 
-        [ForeignKey("TagId")]
-        public virtual Tag Tag { get; set; }
+        [ForeignKey("TagID")]
+        public virtual Tag Tag { set; get; }
     }
 }

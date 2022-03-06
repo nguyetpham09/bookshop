@@ -1,6 +1,7 @@
 ﻿(function (app) {
     app.controller('homeController', homeController);
+
     function homeController() {
 
     }
-})(angular.module('bookshop'))
+})(angular.module('tedushop'));

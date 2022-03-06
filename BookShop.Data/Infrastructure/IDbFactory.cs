@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BookShop.Data.Infrastructure
+namespace TeduShop.Data.Infrastructure
 {
     public interface IDbFactory : IDisposable
     {

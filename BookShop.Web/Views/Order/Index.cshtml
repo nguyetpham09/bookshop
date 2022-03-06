@@ -1,0 +1,81 @@
+﻿@model IEnumerable<TeduShop.Web.Models.OrderInformationViewModel>
+
+@{
+    ViewBag.Title = "Lịch sử mua hàng";
+    Layout = "~/Views/Shared/Layouts.cshtml";
+}
+<div class="single_top">
+    <div class="single_grid">
+        <div id="cartContent">
+            <h3>Lịch sử mua hàng</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Mã đơn hàng
+                    </th>
+                    <th>
+                        Người nhận hàng
+                    </th>
+                    <th>
+                        Số điện thoại
+                    </th>
+                    <th>
+                        Địa chỉ nhận hàng
+                    </th>
+                    <th>
+                        Phương thức thanh toán
+                    </th>
+                    <th>
+                        Ngày đặt hàng
+                    </th>
+                    <th>
+                        Tên sản phẩm
+                    </th>
+                    <th>
+                        Số lượng
+                    </th>
+                    <th>
+                        Thành tiền
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CustomerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CustomerPhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CustomerAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PaymentMethod)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+
+    </div>

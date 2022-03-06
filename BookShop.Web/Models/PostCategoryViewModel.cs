@@ -1,41 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 
-namespace BookShop.Web.Models
+namespace TeduShop.Web.Models
 {
     public class PostCategoryViewModel
     {
-        public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Alias { get; set; }
+        public int ID { set; get; }
+        public string Name { set; get; }
 
-        public string Description { get; set; }
 
-        public int? ParentId { get; set; }
+        public string Alias { set; get; }
+        public string Description { set; get; }
 
-        public int? DisplayOrder { get; set; }
+        public int? ParentID { set; get; }
+        public int? DisplayOrder { set; get; }
 
-        public string Image { get; set; }
+        public string Image { set; get; }
 
-        public bool? HomeFlag { get; set; }
-        
-        public DateTime CreatedDate { get; set; }
+        public bool? HomeFlag { set; get; }
 
-        public string CreatedBy { get; set; }
+        public virtual IEnumerable<PostViewModel> Posts { set; get; }
 
-        public DateTime? UpdatedDate { get; set; }
+        public DateTime? CreatedDate { set; get; }
 
-        public string UpdatedBy { get; set; }
 
-        public string MetaKeyword { get; set; }
+        public string CreatedBy { set; get; }
 
-        public string MetaDescription { get; set; }
-        [Required]
-        public bool Status { get; set; }
+        public DateTime? UpdatedDate { set; get; }
 
-        public virtual IEnumerable<PostViewModel> Posts { get; set; }
+
+        public string UpdatedBy { set; get; }
+
+
+        public string MetaKeyword { set; get; }
+
+        public string MetaDescription { set; get; }
+
+        public bool Status { set; get; }
     }
 }

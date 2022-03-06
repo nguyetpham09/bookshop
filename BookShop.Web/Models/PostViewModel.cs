@@ -1,46 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BookShop.Web.Models
+namespace TeduShop.Web.Models
 {
     public class PostViewModel
     {
-        public int Id { get; set; }
+        public int ID { set; get; }
 
-        public string Name { get; set; }
+        public string Name { set; get; }
 
-        public string Alias { get; set; }
+        public string Alias { set; get; }
 
-        public int CategoryId { get; set; }
+        public int CategoryID { set; get; }
 
-        public string Image { get; set; }
+        public string Image { set; get; }
 
-        public string Description { get; set; }
+        public string Description { set; get; }
 
-        public string Content { get; set; }
+        public string Content { set; get; }
 
-        public bool? HomeFlag { get; set; }
+        public bool? HomeFlag { set; get; }
 
-        public bool? HotFlag { get; set; }
+        public bool? HotFlag { set; get; }
 
-        public int? ViewCount { get; set; }
+        public int? ViewCount { set; get; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { set; get; }
 
-        public string CreatedBy { get; set; }
+        public string CreatedBy { set; get; }
 
-        public DateTime? UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { set; get; }
 
-        public string UpdatedBy { get; set; }
+        public string UpdatedBy { set; get; }
 
-        public string MetaKeyword { get; set; }
+        public string MetaKeyword { set; get; }
 
-        public string MetaDescription { get; set; }
+        public string MetaDescription { set; get; }
 
-        public bool Status { get; set; }
+        public bool Status { set; get; }
 
-        public virtual PostCategoryViewModel PostCategory { get; set; }
+        public virtual PostCategoryViewModel PostCategory { set; get; }
 
-        public virtual IEnumerable<PostTagViewModel> PostTags { get; set; }
+        public virtual IEnumerable<PostTagViewModel> PostTags { set; get; }
     }
 }

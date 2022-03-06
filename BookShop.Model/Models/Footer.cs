@@ -1,16 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BookShop.Model.Models
+namespace TeduShop.Model.Models
 {
     [Table("Footers")]
     public class Footer
     {
         [Key]
         [MaxLength(50)]
-        public string Id { get; set; }
+        public string ID { set; get; }
 
         [Required]
-        public string Content { get; set; }
+        public string Content { set; get; }
     }
 }

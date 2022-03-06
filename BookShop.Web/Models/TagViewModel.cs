@@ -1,11 +1,16 @@
-﻿namespace BookShop.Web.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace TeduShop.Web.Models
 {
     public class TagViewModel
     {
-        public string Id { get; set; }
+        public string ID { set; get; }
 
-        public string Name { get; set; }
+        public string Name { set; get; }
 
-        public string Type { get; set; }
+        public string Type { set; get; }
     }
 }

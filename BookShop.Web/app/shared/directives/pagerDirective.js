@@ -47,4 +47,4 @@
         }
     }
 
-})(angular.module('bookshop.common'));
+})(angular.module('tedushop.common'));

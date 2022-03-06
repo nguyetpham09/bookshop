@@ -1,16 +1,14 @@
-﻿using BookShop.Web.App_Start;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNet.Identity.Owin;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using TeduShop.Web.App_Start;
 
 namespace TeduShop.Web.Api
 {
-    [Microsoft.AspNetCore.Mvc.Route("api/account")]
-    [ApiController]
+    [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {
         private ApplicationSignInManager _signInManager;
@@ -50,9 +48,9 @@ namespace TeduShop.Web.Api
             }
         }
 
-        [Microsoft.AspNetCore.Mvc.HttpPost]
-        [Microsoft.AspNetCore.Authorization.AllowAnonymous]
-        [Microsoft.AspNetCore.Mvc.Route("login")]
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("login")]
         public async Task<HttpResponseMessage> Login(HttpRequestMessage request, string userName, string password, bool rememberMe)
         {
             if (!ModelState.IsValid)
@@ -65,6 +63,14 @@ namespace TeduShop.Web.Api
             return request.CreateResponse(HttpStatusCode.OK, result);
         }
 
-
+        [HttpPost]
+        [Authorize]
+        [Route("logout")]
+        public HttpResponseMessage Logout(HttpRequestMessage request)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            return request.CreateResponse(HttpStatusCode.OK, new { success = true });
+        }
     }
 }

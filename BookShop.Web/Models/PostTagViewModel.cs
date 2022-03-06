@@ -1,13 +1,18 @@
-﻿namespace BookShop.Web.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace TeduShop.Web.Models
 {
     public class PostTagViewModel
     {
-        public int PostId { get; set; }
+        public int PostID { set; get; }
 
-        public string TagId { get; set; }
+        public string TagID { set; get; }
 
-        public virtual PostViewModel Post { get; set; }
+        public virtual PostViewModel Post { set; get; }
 
-        public virtual TagViewModel Tag { get; set; }
+        public virtual TagViewModel Tag { set; get; }
     }
 }

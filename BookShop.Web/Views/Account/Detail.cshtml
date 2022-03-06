@@ -1,0 +1,51 @@
+﻿@model TeduShop.Web.Models.ApplicationUserViewModel
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/Layouts.cshtml";
+}
+
+
+
+<div class="account_grid">
+        <div class="login-right">
+            <h2>THÔNG TIN TÀI KHOẢN</h2>
+            @using (Html.BeginForm("Detail", "Account", new { returnUrl = @ViewBag.ReturnUrl }, FormMethod.Post))
+            {
+                @Html.ValidationSummary(false, "", new { @class = "error" })
+                <div>
+                    <span><b>Họ và tên</b><label>*</label></span>
+                    @Html.TextBoxFor(model => model.FullName)
+                </div>
+                <div>
+                    <span><b>Email</b><label>*</label></span>
+                    @Html.TextBoxFor(model => model.Email)
+                </div>
+                <div>
+                    <span><b>Username</b><label>*</label></span>
+                    @Html.TextBoxFor(model => model.UserName)
+                </div>
+                <div>
+                    <span><b>Số điện thoại</b><label>*</label></span>
+                    @Html.TextBoxFor(model => model.PhoneNumber)
+                </div>
+                <div>
+                    <span><b>Ngày sinh</b><label>*</label></span>
+                    @Html.TextBoxFor(model => model.BirthDay)
+                </div>
+                <input type="submit" value="Lưu">
+
+
+            }
+
+            @Html.Partial("_ExternalLoginsListPartial", new TeduShop.Web.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+
+
+        </div>
+        <div class="login-left">
+            <h3>Chưa có tài khoản</h3>
+            <p>Nếu bạn chưa có tài khoản vui lòng đăng ký tại link dưới đây:</p>
+            <a class="acount-btn" href="/dang-ky.html">Đăng ký thành viên</a>
+        </div>
+        <div class="clearfix"> </div>
+    </div>

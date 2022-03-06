@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNet.Identity;
+<div class="header">
+    <div class="top-header">
+        <div class="container">
+            <div class="top-header-left">
+                <ul class="support">
+                    <li><a href="#"><label> </label></a></li>
+                    <li><a href="#">24x7<span class="live"> hỗ trợ trực tuyến</span></a></li>
+                </ul>
+                <ul class="support">
+                    <li class="van"><a href="#"><label> </label></a></li>
+                    <li><a href="#">Miễn phí giao hàng <span class="live">đơn hàng từ 500.000 vnđ trở lên</span></a></li>
+                </ul>
+                <ul class="support">
+                    <li><a href="#"><label> </label></a></li>
+                    <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
+                </ul>
+                <ul class="support">
+                    <li><a href="#"><label> </label></a></li>
+                    <li><a href="/lien-he.html">Liên hệ</a></li>
+                </ul>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="bottom-header">
+        <div class="container">
+            <div class="header-bottom-left">
+                <div class="logo">
+                    <a href="/"><img src="~/Assets/client/images/logo.png" alt="" /></a>
+                </div>
+                <div class="search">
+                    <form method="get" action="/tim-kiem.html">
+                        <input type="text" id="txtKeyword" name="keyword" placeholder="Từ khóa">
+                        <input type="submit" value="Tìm kiếm" id="btnSearch">
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="header-bottom-right">
+                @using (Html.BeginForm("LogOut", "Account", FormMethod.Post, new { @id = "frmLogout" }))
+                {
+                    if (Request.IsAuthenticated)
+                    {
+                        var userDetailUrl = "/tai-khoan-" + User.Identity.GetUserId() + ".html";
+                        @Html.AntiForgeryToken()
+                        <ul class="login">
+                            <li><a href="@userDetailUrl"><span> </span>Xin chào: @User.Identity.GetUserName()</a></li> |
+                            <li><a href="#" id="btnLogout">Thoát</a></li>
+                        </ul>
+
+                    }
+                    else
+                    {
+                        <ul class="login">
+                            <li><a href="/dang-nhap.html"><span> </span>ĐĂNG NHẬP</a></li> |
+                            <li><a href="/dang-ky.html">ĐĂNG KÝ</a></li>
+                        </ul>
+                    }
+                }
+
+                <div class="cart"><a href="/gio-hang.html"><span> </span>GIỎ HÀNG</a></div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

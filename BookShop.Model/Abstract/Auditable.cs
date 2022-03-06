@@ -1,26 +1,26 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BookShop.Model.Abstract
+namespace TeduShop.Model.Abstract
 {
     public abstract class Auditable : IAuditable
     {
-        public DateTime CreatedDate { get ; set; }
+        public DateTime? CreatedDate { set; get; }
 
         [MaxLength(256)]
-        public string CreatedBy { get; set; }
+        public string CreatedBy { set; get; }
 
-        public DateTime? UpdatedDate { get; set; }
-
-        [MaxLength(256)]
-        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedDate { set; get; }
 
         [MaxLength(256)]
-        public string MetaKeyword { get; set; }
+        public string UpdatedBy { set; get; }
 
         [MaxLength(256)]
-        public string MetaDescription { get; set; }
+        public string MetaKeyword { set; get; }
 
-        public bool Status { get; set; }
+        [MaxLength(256)]
+        public string MetaDescription { set; get; }
+
+        public bool Status { set; get; }
     }
 }

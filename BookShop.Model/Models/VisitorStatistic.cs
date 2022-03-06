@@ -2,18 +2,18 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BookShop.Model.Models
+namespace TeduShop.Model.Models
 {
     [Table("VisitorStatistics")]
     public class VisitorStatistic
     {
         [Key]
-        public Guid Id { get; set; }
-        
+        public Guid ID { set; get; }
+
         [Required]
-        public DateTime VisitedDate { get; set; }
+        public DateTime VisitedDate { set; get; }
 
         [MaxLength(50)]
-        public string IPAddress { get; set; }
+        public string IPAddress { set; get; }
     }
 }

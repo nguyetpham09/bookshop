@@ -1,38 +1,51 @@
 ﻿using AutoMapper;
-using BookShop.Model.Models;
-using BookShop.Service;
-using BookShop.Web.Infrastructure.Core;
-using BookShop.Web.Infrastructure.Extension;
-using BookShop.Web.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web.Http;
+using TeduShop.Model.Models;
+using TeduShop.Service;
+using TeduShop.Web.Infrastructure.Core;
+using TeduShop.Web.Models;
+using TeduShop.Web.Infrastructure.Extensions;
 using System.Web.Script.Serialization;
+using System.Data.Entity.Validation;
 
-namespace BookShop.Web.Api
+namespace TeduShop.Web.Api
 {
-    [ApiController]
-    [Route("api/[controller]")]
+    [RoutePrefix("api/productcategory")]
+    [Authorize]
     public class ProductCategoryController : ApiControllerBase
     {
         #region Initialize
         private IProductCategoryService _productCategoryService;
 
-        public ProductCategoryController()
+        public ProductCategoryController(IErrorService errorService, IProductCategoryService productCategoryService)
+            : base(errorService)
         {
+            this._productCategoryService = productCategoryService;
         }
 
-        public ProductCategoryController(IErrorService errorService, IProductCategoryService productCategoryService) : base(errorService)
-        {
-            _productCategoryService = productCategoryService;
-        }
         #endregion
+
+        [Route("getallparents")]
         [HttpGet]
-        [Route("{id}")]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _productCategoryService.GetAll();
+
+                var responseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
         public HttpResponseMessage GetById(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -47,75 +60,103 @@ namespace BookShop.Web.Api
             });
         }
 
-        [HttpGet]
-        [Route("getallparents")]
-        public HttpResponseMessage GetAllParents(HttpRequestMessage request)
-        {
-            return CreateHttpResponse(request, () =>
-            {
-                var model = _productCategoryService.GetAll();
-
-                var responseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
-
-                var response = request.CreateResponse(HttpStatusCode.Accepted, responseData);
-                return response;
-            });
-        }
-
         [Route("getall")]
         [HttpGet]
-        public HttpResponseMessage Get(HttpRequestMessage request,string keyword, int page, int pageSize)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var totalRow = 0;
+                int totalRow = 0;
+                var model = _productCategoryService.GetAll(keyword);
 
-                var productCategory = _productCategoryService.GetAll(keyword);
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
 
-                totalRow = productCategory.Count();
+                var responseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(query);
 
-                var query = productCategory.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
-
-                var productCategoryVm = Mapper.Map<List<ProductCategoryViewModel>>(query);
-
-                var pagination = new PaginationSet<ProductCategoryViewModel>()
+                var paginationSet = new PaginationSet<ProductCategoryViewModel>()
                 {
-                    Items = productCategoryVm,
+                    Items = responseData,
                     Page = page,
                     TotalCount = totalRow,
                     TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
                 };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
+                return response;
+            });
+        }
 
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, pagination);
+
+        [Route("create")]
+        [HttpPost]
+        [AllowAnonymous]
+        public HttpResponseMessage Create(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var newProductCategory = new ProductCategory();
+                    newProductCategory.UpdateProductCategory(productCategoryVm);
+                    newProductCategory.CreatedDate = DateTime.Now;
+                    _productCategoryService.Add(newProductCategory);
+                    _productCategoryService.Save();
+
+                    var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(newProductCategory);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                }
 
                 return response;
             });
         }
 
-        [Route("create")]
-        [HttpPost]
+        [Route("update")]
+        [HttpPut]
         [AllowAnonymous]
-        public HttpResponseMessage Create (HttpRequestMessage request, ProductCategoryViewModel productCategoryViewModel)
+        public HttpResponseMessage Update(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-
                 if (!ModelState.IsValid)
                 {
                     response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-
                 else
                 {
-                    var productCategory = new ProductCategory();
-                    productCategory.UpdateProductCategory(productCategoryViewModel);
+                    var dbProductCategory = _productCategoryService.GetById(productCategoryVm.ID);
 
-                    _productCategoryService.Add(productCategory);
-                    _productCategoryService.Save();
+                    dbProductCategory.UpdateProductCategory(productCategoryVm);
+                    dbProductCategory.UpdatedDate = DateTime.Now;
 
-                    var responseDate = Mapper.Map<ProductCategoryViewModel>(productCategory);
-                    response = request.CreateResponse(HttpStatusCode.OK, productCategory);
+                    _productCategoryService.Update(dbProductCategory);
+                    try
+                    {
+                        _productCategoryService.Save();
+                    }
+                    catch (DbEntityValidationException e)
+                    {
+                        foreach (var eve in e.EntityValidationErrors)
+                        {
+                            Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                                eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                            foreach (var ve in eve.ValidationErrors)
+                            {
+                                Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                    ve.PropertyName, ve.ErrorMessage);
+                            }
+                        }
+                        throw;
+                    }
+                    
+
+                    var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(dbProductCategory);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
                 }
 
                 return response;
@@ -130,25 +171,22 @@ namespace BookShop.Web.Api
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-
                 if (!ModelState.IsValid)
                 {
                     response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-
                 else
                 {
                     var oldProductCategory = _productCategoryService.Delete(id);
                     _productCategoryService.Save();
 
-                    var responseDate = Mapper.Map<ProductCategoryViewModel>(oldProductCategory);
-                    response = request.CreateResponse(HttpStatusCode.Created, oldProductCategory);
+                    var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(oldProductCategory);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
                 }
 
                 return response;
             });
         }
-
         [Route("deletemulti")]
         [HttpDelete]
         [AllowAnonymous]
@@ -157,24 +195,21 @@ namespace BookShop.Web.Api
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-
                 if (!ModelState.IsValid)
                 {
                     response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-
                 else
                 {
-                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(checkedProductCategories);
-
-                    foreach (var id in ids)
+                    var listProductCategory = new JavaScriptSerializer().Deserialize<List<int>>(checkedProductCategories);
+                    foreach (var item in listProductCategory)
                     {
-                        _productCategoryService.Delete(id);
+                        _productCategoryService.Delete(item);
                     }
 
                     _productCategoryService.Save();
 
-                    response = request.CreateResponse(HttpStatusCode.OK, true);
+                    response = request.CreateResponse(HttpStatusCode.OK, listProductCategory.Count);
                 }
 
                 return response;

@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BookShop.Model.Models
+namespace TeduShop.Model.Models
 {
     [Table("Errors")]
     public class Error
     {
         [Key]
-        public int Id { get; set; }
+        public int ID { set; get; }
 
-        public string Message { get; set; }
+        public string Message { set; get; }
 
-        public string StackTrace { get; set; }
+        public string StackTrace { set; get; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { set; get; }
     }
 }

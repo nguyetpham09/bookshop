@@ -1,9 +1,10 @@
-﻿using BookShop.Data.Infrastructure;
-using BookShop.Data.Repository;
-using BookShop.Model.Models;
+﻿using System;
 using System.Collections.Generic;
+using TeduShop.Data.Infrastructure;
+using TeduShop.Data.Repositories;
+using TeduShop.Model.Models;
 
-namespace BookShop.Service
+namespace TeduShop.Service
 {
     public interface IPostCategoryService
     {
@@ -11,7 +12,7 @@ namespace BookShop.Service
 
         void Update(PostCategory postCategory);
 
-        void Delete(int id);
+        PostCategory Delete(int id);
 
         IEnumerable<PostCategory> GetAll();
 
@@ -24,13 +25,13 @@ namespace BookShop.Service
 
     public class PostCategoryService : IPostCategoryService
     {
-        private readonly IPostCategoryRepository _postCategoryRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private IPostCategoryRepository _postCategoryRepository;
+        private IUnitOfWork _unitOfWork;
 
         public PostCategoryService(IPostCategoryRepository postCategoryRepository, IUnitOfWork unitOfWork)
         {
-            _postCategoryRepository = postCategoryRepository;
-            _unitOfWork = unitOfWork;
+            this._postCategoryRepository = postCategoryRepository;
+            this._unitOfWork = unitOfWork;
         }
 
         public PostCategory Add(PostCategory postCategory)
@@ -38,9 +39,9 @@ namespace BookShop.Service
             return _postCategoryRepository.Add(postCategory);
         }
 
-        public void Delete(int id)
+        public PostCategory Delete(int id)
         {
-            _postCategoryRepository.Delete(id);
+           return _postCategoryRepository.Delete(id);
         }
 
         public IEnumerable<PostCategory> GetAll()
@@ -50,7 +51,7 @@ namespace BookShop.Service
 
         public IEnumerable<PostCategory> GetAllByParentId(int parentId)
         {
-            return _postCategoryRepository.GetMulti(x => x.Status && x.ParentId == parentId);
+            return _postCategoryRepository.GetMulti(x => x.Status && x.ParentID == parentId);
         }
 
         public PostCategory GetById(int id)

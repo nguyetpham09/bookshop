@@ -1,39 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 
-namespace BookShop.Web.Models
+namespace TeduShop.Web.Models
 {
     public class ProductCategoryViewModel
     {
-        public int Id { get; set; }
-        
-        public string Name { get; set; }
-        
-        public string Alias { get; set; }
-        
-        public string Description { get; set; }
-        
-        public int? ParentId { get; set; }
-        
-        public int? DisplayOrder { get; set; }
-        
-        public string Image { get; set; }
-        
-        public bool? HomeFlag { get; set; }
-        
-        public DateTime CreatedDate { get; set; }
+        public int ID { set; get; }
 
-        public string CreatedBy { get; set; }
+        [Required(ErrorMessage = "Yêu cầu nhập tên danh mục")]
+        public string Name { set; get; }
 
-        public DateTime? UpdatedDate { get; set; }
+        [Required(ErrorMessage = "Yêu cầu nhập tiêu đề SEO")]
+        public string Alias { set; get; }
 
-        public string UpdatedBy { get; set; }
+        public string Description { set; get; }
 
-        public string MetaKeyword { get; set; }
+        public int? ParentID { set; get; }
+        public int? DisplayOrder { set; get; }
 
-        public string MetaDescription { get; set; }
+        public string Image { set; get; }
 
-        public bool Status { get; set; }
-        public IEnumerable<ProductViewModel> Products { get; set; }
+        public bool? HomeFlag { set; get; }
+
+        public virtual IEnumerable<PostViewModel> Posts { set; get; }
+
+        public DateTime? CreatedDate { set; get; }
+
+
+        public string CreatedBy { set; get; }
+
+        public DateTime? UpdatedDate { set; get; }
+
+
+        public string UpdatedBy { set; get; }
+
+
+        public string MetaKeyword { set; get; }
+
+        public string MetaDescription { set; get; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập trạng thái")]
+        public bool Status { set; get; }
     }
 }

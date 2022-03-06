@@ -1,49 +1,50 @@
-﻿using BookShop.Data.Infrastructure;
-using BookShop.Data.Repository;
-using BookShop.Model.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using TeduShop.Data.Infrastructure;
+using TeduShop.Data.Repositories;
+using TeduShop.Model.Models;
+using System.Linq;
 
-namespace BookShop.Service
+namespace TeduShop.Service
 {
     public interface IPostService
     {
-        void AddPost(Post post);
+        void Add(Post post);
 
-        void UpdatePost(Post post);
+        void Update(Post post);
 
-        void DeletePost(int id);
+        void Delete(int id);
 
         IEnumerable<Post> GetAll();
 
         IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
 
+        IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow);
+
         Post GetById(int id);
 
         IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
-
-        IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow);
 
         void SaveChanges();
     }
 
     public class PostService : IPostService
     {
-        private readonly IPostRepository _postRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        IPostRepository _postRepository;
+        IUnitOfWork _unitOfWork;
 
         public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
         {
-            _postRepository = postRepository;
-            _unitOfWork = unitOfWork;
+            this._postRepository = postRepository;
+            this._unitOfWork = unitOfWork;
         }
 
-        public void AddPost(Post post)
+        public void Add(Post post)
         {
             _postRepository.Add(post);
         }
 
-        public void DeletePost(int id)
+        public void Delete(int id)
         {
             _postRepository.Delete(id);
         }
@@ -55,12 +56,14 @@ namespace BookShop.Service
 
         public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
         {
-            return _postRepository.GetMultiPaging(x => x.Status && x.CategoryId == categoryId, out totalRow, page, pageSize, new string[] { "PostCategory" });
+            return _postRepository.GetMultiPaging(x => x.Status && x.CategoryID == categoryId, out totalRow, page, pageSize, new string[] { "PostCategory" });
         }
 
         public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
+            //TODO: Select all post by tag
             return _postRepository.GetAllByTag(tag, page, pageSize, out totalRow);
+
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)
@@ -78,7 +81,7 @@ namespace BookShop.Service
             _unitOfWork.Commit();
         }
 
-        public void UpdatePost(Post post)
+        public void Update(Post post)
         {
             _postRepository.Update(post);
         }

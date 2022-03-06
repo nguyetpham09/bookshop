@@ -1,30 +1,32 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BookShop.Model.Models
+namespace TeduShop.Model.Models
 {
     [Table("Slides")]
     public class Slide
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ID { set; get; }
 
         [Required]
         [MaxLength(256)]
-        public string Name { get; set; }
+        public string Name { set; get; }
 
         [MaxLength(256)]
-        public string Description { get; set; }
+        public string Description { set; get; }
 
         [MaxLength(256)]
-        public string Image { get; set; }
+        public string Image { set; get; }
 
         [MaxLength(256)]
-        public string Url { get; set; }
+        public string Url { set; get; }
 
-        public int? DisplayOrder { get; set; }
+        public int? DisplayOrder { set; get; }
 
-        public bool Status { get; set; }
+        public bool Status { set; get; }
+
+        public string Content { set; get; }
     }
 }

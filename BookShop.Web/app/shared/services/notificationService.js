@@ -4,7 +4,7 @@
     function notificationService() {
         toastr.options = {
             "debug": false,
-            "positionClass": "toastr-top-right",
+            "positionClass": "toast-top-right",
             "onclick": null,
             "fadeIn": 300,
             "fadeOut": 1000,
@@ -18,19 +18,18 @@
 
         function displayError(error) {
             if (Array.isArray(error)) {
-                error.forEach({
-                    function(err) {
-                        toastr.error(err);
-                    }
+                error.each(function (err) {
+                    toastr.error(err);
                 });
             }
-            else toastr.error(error);
+            else {
+                toastr.error(error);
+            }
         }
 
         function displayWarning(message) {
             toastr.warning(message);
         }
-
         function displayInfo(message) {
             toastr.info(message);
         }
@@ -42,4 +41,4 @@
             displayInfo: displayInfo
         }
     }
-})(angular.module('bookshop.common'))
+})(angular.module('tedushop.common'));

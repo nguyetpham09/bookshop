@@ -3,7 +3,8 @@
         return function (input) {
             if (input == true)
                 return 'Kích hoạt';
-            else return 'Khóa'
+            else
+                return 'Khóa';
         }
-    })
-})(angular.module('bookshop.common'))
+    });
+})(angular.module('tedushop.common'));

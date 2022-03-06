@@ -1,50 +1,60 @@
-﻿using BookShop.Model.Abstract;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Linq;
+using TeduShop.Model.Abstract;
 
-namespace BookShop.Model.Models
+namespace TeduShop.Model.Models
 {
     [Table("Products")]
+    
     public class Product : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ID { set; get; }
 
         [Required]
         [MaxLength(256)]
-        public string Name { get; set; }
+        public string Name { set; get; }
 
         [Required]
         [MaxLength(256)]
-        public string Alias { get; set; }
+        public string Alias { set; get; }
 
-        public int CategoryId { get; set; }
+        [Required]
+        public int CategoryID { set; get; }
 
         [MaxLength(256)]
-        public string Image { get; set; }
+        public string Image { set; get; }
 
         [Column(TypeName = "xml")]
-        public string MoreImages { get; set; }
+        public string MoreImages { set; get; }
 
-        public decimal Price { get; set; }
+        public decimal Price { set; get; }
 
-        public decimal? PromotionPrice { get; set; }
+        public decimal? PromotionPrice { set; get; }
 
-        public int? Warranty { get; set; }
+        public int? Warranty { set; get; }
 
         [MaxLength(500)]
-        public string Description { get; set; }
+        public string Description { set; get; }
+        public string Content { set; get; }
 
-        public string Content { get; set; }
+        public bool? HomeFlag { set; get; }
+        public bool? HotFlag { set; get; }
+        public int? ViewCount { set; get; }
 
-        public bool? HomeFlag { get; set; }
+        public string Tags { set; get; }
 
-        public bool? HotFlag { get; set; }
+        public int Quantity { set; get; }
 
-        public int? ViewCount { get; set; }
+        public decimal OriginalPrice { set; get; }
 
-        [ForeignKey("CategoryId")]
-        public virtual ProductCategory ProductCategory { get; set; }
+        [ForeignKey("CategoryID")]
+        public virtual ProductCategory ProductCategory { set; get; }
+
+        public virtual IEnumerable<ProductTag> ProductTags { set; get; }
     }
 }
