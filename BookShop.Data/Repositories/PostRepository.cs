@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Model.Models;
 using System.Linq;
+using BookShop.Data.Infrastructure;
 
 namespace TeduShop.Data.Repositories
 {

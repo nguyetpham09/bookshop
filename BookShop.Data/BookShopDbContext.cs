@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeduShop.Model.Models;
 
-namespace TeduShop.Data
+namespace BookShop.Data
 {
     public class BookShopDbContext : IdentityDbContext<ApplicationUser>
     {

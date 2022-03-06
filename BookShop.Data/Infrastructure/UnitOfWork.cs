@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BookShop.Data;
+using BookShop.Data.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;

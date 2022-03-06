@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using BookShop.Data;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -6,7 +7,6 @@ using Microsoft.Owin.Security;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using TeduShop.Data;
 using TeduShop.Model.Models;
 
 namespace TeduShop.Web.App_Start

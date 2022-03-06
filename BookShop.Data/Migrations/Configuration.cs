@@ -1,25 +1,25 @@
 ﻿namespace TeduShop.Data.Migrations
 {
+    using BookShop.Data;
     using Common;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Model.Models;
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Validation;
     using System.Diagnostics;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<TeduShop.Data.BookShopDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<BookShopDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(TeduShop.Data.BookShopDbContext context)
+        protected override void Seed(BookShopDbContext context)
         {
             CreateProductCategorySample(context);
             CreateSlide(context);
@@ -93,7 +93,7 @@
             }
            
         }
-        private void CreateProductCategorySample(TeduShop.Data.BookShopDbContext context)
+        private void CreateProductCategorySample(BookShopDbContext context)
         {
             if (context.ProductCategories.Count() == 0)
             {

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using BookShop.Common.ViewModels;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Model.Models;
+using BookShop.Data.Infrastructure;
 
 namespace TeduShop.Data.Repositories
 {

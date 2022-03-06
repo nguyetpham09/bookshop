@@ -1,4 +1,4 @@
-namespace TeduShop.Data.Migrations
+namespace BookShop.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

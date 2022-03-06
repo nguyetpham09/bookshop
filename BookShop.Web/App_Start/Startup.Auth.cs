@@ -13,7 +13,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Services.Description;
 using TeduShop.Common;
-using TeduShop.Data;
+using BookShop.Data;
 using TeduShop.Model.Models;
 using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;

@@ -1,4 +1,5 @@
-﻿using TeduShop.Data.Infrastructure;
+﻿using BookShop.Data.Infrastructure;
+using TeduShop.Data.Infrastructure;
 using TeduShop.Model.Models;
 
 namespace TeduShop.Data.Repositories

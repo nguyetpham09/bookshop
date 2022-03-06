@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TeduShop.Data.Infrastructure
+namespace BookShop.Data.Infrastructure
 {
     public class Disposable : IDisposable
     {
