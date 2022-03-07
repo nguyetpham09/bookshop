@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using BookShop.Data.Infrastructure;
+using BookShop.Model.Models;
 using System.Collections.Generic;
-using TeduShop.Data.Infrastructure;
-using TeduShop.Model.Models;
 using System.Linq;
-using BookShop.Data.Infrastructure;
 
-namespace TeduShop.Data.Repositories
+namespace BookShop.Data.Repositories
 {
     public interface IPostRepository : IRepository<Post>
     {

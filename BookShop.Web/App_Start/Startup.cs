@@ -3,6 +3,9 @@ using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using BookShop.Data;
 using BookShop.Data.Infrastructure;
+using BookShop.Data.Repositories;
+using BookShop.Model.Models;
+using BookShop.Service;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
@@ -12,9 +15,6 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using TeduShop.Data.Infrastructure;
-using TeduShop.Data.Repositories;
-using TeduShop.Model.Models;
-using TeduShop.Service;
 
 [assembly: OwinStartup(typeof(TeduShop.Web.App_Start.Startup))]
 

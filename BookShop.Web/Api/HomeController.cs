@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using BookShop.Service;
 using System.Web.Http;
-using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
 
 namespace TeduShop.Web.Api

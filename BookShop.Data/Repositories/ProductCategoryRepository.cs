@@ -1,10 +1,9 @@
 ﻿using BookShop.Data.Infrastructure;
+using BookShop.Model.Models;
 using System.Collections.Generic;
 using System.Linq;
-using TeduShop.Data.Infrastructure;
-using TeduShop.Model.Models;
 
-namespace TeduShop.Data.Repositories
+namespace BookShop.Data.Repositories
 {
     public interface IProductCategoryRepository : IRepository<ProductCategory>
     {

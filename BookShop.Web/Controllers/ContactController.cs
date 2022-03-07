@@ -1,14 +1,9 @@
 ﻿using AutoMapper;
-using BotDetect.Web.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
-using System.Web.Mvc;
 using BookShop.Common;
-using TeduShop.Model.Models;
-using TeduShop.Service;
+using BookShop.Model.Models;
+using BookShop.Service;
+using BotDetect.Web.Mvc;
+using System.Web.Mvc;
 using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Models;
 

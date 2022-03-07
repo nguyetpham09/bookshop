@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using TeduShop.Model.Models;
+using BookShop.Model.Models;
 using TeduShop.Web.Models;
 
 namespace TeduShop.Web.Mappings

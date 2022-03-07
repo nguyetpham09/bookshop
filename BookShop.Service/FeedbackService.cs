@@ -1,8 +1,8 @@
-﻿using TeduShop.Data.Infrastructure;
-using TeduShop.Data.Repositories;
-using TeduShop.Model.Models;
+﻿using BookShop.Data.Infrastructure;
+using BookShop.Data.Repositories;
+using BookShop.Model.Models;
 
-namespace TeduShop.Service
+namespace BookShop.Service
 {
     public interface IFeedbackService
     {

@@ -1,10 +1,10 @@
 ﻿namespace TeduShop.Data.Migrations
 {
     using BookShop.Data;
+    using BookShop.Model.Models;
     using Common;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using Model.Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
@@ -191,7 +191,7 @@
             {
                 try
                 {
-                    var contactDetail = new TeduShop.Model.Models.ContactDetail()
+                    var contactDetail = new BookShop.Model.Models.ContactDetail()
                     {
                         Name = "Shop thời trang TEDU",
                         Address = "Ngõ 77 Xuân La",

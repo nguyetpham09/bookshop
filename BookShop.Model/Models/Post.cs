@@ -1,10 +1,9 @@
-﻿using System.Collections;
+﻿using BookShop.Model.Abstract;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using TeduShop.Model.Abstract;
 
-namespace TeduShop.Model.Models
+namespace BookShop.Model.Models
 {
     [Table("Posts")]
     public class Post : Auditable

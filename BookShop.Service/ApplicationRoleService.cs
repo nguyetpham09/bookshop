@@ -1,14 +1,11 @@
-﻿using System;
+﻿using BookShop.Common.Exceptions;
+using BookShop.Data.Infrastructure;
+using BookShop.Data.Repositories;
+using BookShop.Model.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookShop.Common.Exceptions;
-using TeduShop.Data.Infrastructure;
-using TeduShop.Data.Repositories;
-using TeduShop.Model.Models;
 
-namespace TeduShop.Service
+namespace BookShop.Service
 {
     public interface IApplicationRoleService
     {

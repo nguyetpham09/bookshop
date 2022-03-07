@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
+using BookShop.Common.Exceptions;
+using BookShop.Model.Models;
+using BookShop.Service;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using BookShop.Common.Exceptions;
-using TeduShop.Model.Models;
-using TeduShop.Service;
 using TeduShop.Web.App_Start;
 using TeduShop.Web.Infrastructure.Core;
 using TeduShop.Web.Infrastructure.Extensions;

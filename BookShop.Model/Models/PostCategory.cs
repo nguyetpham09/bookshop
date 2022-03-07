@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using BookShop.Model.Abstract;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using TeduShop.Model.Abstract;
 
-namespace TeduShop.Model.Models
+namespace BookShop.Model.Models
 {
     [Table("PostCategories")]
     public class PostCategory : Auditable

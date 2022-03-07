@@ -1,7 +1,7 @@
 ﻿using BookShop.Data.Infrastructure;
-using TeduShop.Model.Models;
+using BookShop.Model.Models;
 
-namespace TeduShop.Data.Repositories
+namespace BookShop.Data.Repositories
 {
     public interface IApplicationRoleGroupRepository : IRepository<ApplicationRoleGroup>
     {

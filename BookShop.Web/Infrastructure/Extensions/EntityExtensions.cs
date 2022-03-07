@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using TeduShop.Model.Models;
+﻿using BookShop.Model.Models;
+using System;
 using TeduShop.Web.Models;
 
 namespace TeduShop.Web.Infrastructure.Extensions

@@ -1,12 +1,12 @@
-﻿using System;
+﻿using BookShop.Model.Models;
+using BookShop.Service;
+using System;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TeduShop.Model.Models;
-using TeduShop.Service;
 
 namespace TeduShop.Web.Infrastructure.Core
 {

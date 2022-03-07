@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
+using BookShop.Common;
+using BookShop.Model.Models;
+using BookShop.Service;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using BookShop.Common;
-using TeduShop.Model.Models;
-using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
 using TeduShop.Web.Models;
 

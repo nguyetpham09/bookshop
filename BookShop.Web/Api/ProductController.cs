@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using BookShop.Common;
+using BookShop.Model.Models;
+using BookShop.Service;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -10,9 +13,6 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Script.Serialization;
-using BookShop.Common;
-using TeduShop.Model.Models;
-using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
 using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Models;

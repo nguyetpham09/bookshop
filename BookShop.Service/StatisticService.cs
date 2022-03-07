@@ -1,12 +1,8 @@
-﻿using System;
+﻿using BookShop.Common.ViewModels;
+using BookShop.Data.Repositories;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookShop.Common.ViewModels;
-using TeduShop.Data.Repositories;
 
-namespace TeduShop.Service
+namespace BookShop.Service
 {
     public interface IStatisticService
     {

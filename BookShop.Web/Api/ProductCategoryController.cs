@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
+using BookShop.Model.Models;
+using BookShop.Service;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TeduShop.Model.Models;
-using TeduShop.Service;
-using TeduShop.Web.Infrastructure.Core;
-using TeduShop.Web.Models;
-using TeduShop.Web.Infrastructure.Extensions;
 using System.Web.Script.Serialization;
-using System.Data.Entity.Validation;
+using TeduShop.Web.Infrastructure.Core;
+using TeduShop.Web.Infrastructure.Extensions;
+using TeduShop.Web.Models;
 
 namespace TeduShop.Web.Api
 {

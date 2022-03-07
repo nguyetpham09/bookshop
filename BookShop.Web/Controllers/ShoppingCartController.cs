@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using BookShop.Common;
+using BookShop.Model.Models;
+using BookShop.Service;
 using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -10,8 +12,6 @@ using System.Net.Http;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using TeduShop.Common;
-using TeduShop.Model.Models;
-using TeduShop.Service;
 using TeduShop.Web.App_Start;
 using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Infrastructure.GoShipAPI;

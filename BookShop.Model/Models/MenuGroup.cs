@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using BookShop.Model.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TeduShop.Model.Models
+namespace BookShop.Model.Models
 {
     [Table("MenuGroups")]
     public class MenuGroup

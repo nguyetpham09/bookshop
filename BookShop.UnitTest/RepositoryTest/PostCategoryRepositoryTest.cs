@@ -1,9 +1,9 @@
 ﻿using BookShop.Data.Infrastructure;
+using BookShop.Data.Repositories;
+using BookShop.Model.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using TeduShop.Data.Infrastructure;
-using TeduShop.Data.Repositories;
-using TeduShop.Model.Models;
 
 namespace TeduShop.UnitTest.RepositoryTest
 {

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Collections;
+﻿using BookShop.Common.ViewModels;
+using BookShop.Data.Infrastructure;
+using BookShop.Model.Models;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using BookShop.Common.ViewModels;
-using TeduShop.Data.Infrastructure;
-using TeduShop.Model.Models;
-using BookShop.Data.Infrastructure;
+using System.Linq;
 
-namespace TeduShop.Data.Repositories
+namespace BookShop.Data.Repositories
 {
     public interface IOrderRepository : IRepository<Order>
     {

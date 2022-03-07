@@ -1,7 +1,7 @@
 ﻿using BookShop.Data.Infrastructure;
+using BookShop.Model.Models;
 using System.Collections.Generic;
 using System.Linq;
-using TeduShop.Model.Models;
 
 namespace BookShop.Data.Repositories
 {

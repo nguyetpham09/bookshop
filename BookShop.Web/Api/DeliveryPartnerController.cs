@@ -1,17 +1,13 @@
-﻿using AutoMapper;
+﻿using BookShop.Common;
+using BookShop.Service;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BookShop.Common;
-using TeduShop.Model.Models;
-using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
 using TeduShop.Web.Infrastructure.GoShipAPI;
-using TeduShop.Web.Models;
 
 namespace TeduShop.Web.Api
 {
