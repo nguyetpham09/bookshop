@@ -6,6 +6,7 @@ using BookShop.Data.Infrastructure;
 using BookShop.Data.Repositories;
 using BookShop.Model.Models;
 using BookShop.Service;
+using BookShop.Web.App_Start;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
@@ -16,9 +17,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using TeduShop.Data.Infrastructure;
 
-[assembly: OwinStartup(typeof(TeduShop.Web.App_Start.Startup))]
+[assembly: OwinStartup(typeof(BookShop.Web.App_Start.Startup))]
 
-namespace TeduShop.Web.App_Start
+namespace BookShop.Web.App_Start
 {
     public partial class Startup
     {

@@ -1,8 +1,7 @@
-﻿using System.Web;
+﻿using BookShop.Common;
 using System.Web.Optimization;
-using BookShop.Common;
 
-namespace TeduShop.Web
+namespace BookShop.Web
 {
     public class BundleConfig
     {

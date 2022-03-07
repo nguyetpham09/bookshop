@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace TeduShop.Web.Infrastructure.Core
+namespace BookShop.Web.Infrastructure.Core
 {
     public class PaginationSet<T>
     {

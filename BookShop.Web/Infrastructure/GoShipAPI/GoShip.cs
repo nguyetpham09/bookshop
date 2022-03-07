@@ -1,12 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using BookShop.Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using BookShop.Common;
 
-namespace TeduShop.Web.Infrastructure.GoShipAPI
+namespace BookShop.Web.Infrastructure.GoShipAPI
 {
     public class GoShip
     {

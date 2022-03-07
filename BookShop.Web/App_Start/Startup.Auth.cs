@@ -1,6 +1,7 @@
 ﻿using BookShop.Data;
 using BookShop.Model.Models;
 using BookShop.Service;
+using BookShop.Web.Infrastructure.Core;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -15,11 +16,10 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using TeduShop.Common;
-using TeduShop.Web.Infrastructure.Core;
 
-[assembly: OwinStartup(typeof(TeduShop.Web.App_Start.Startup))]
+[assembly: OwinStartup(typeof(BookShop.Web.App_Start.Startup))]
 
-namespace TeduShop.Web.App_Start
+namespace BookShop.Web.App_Start
 {
     public partial class Startup
     {

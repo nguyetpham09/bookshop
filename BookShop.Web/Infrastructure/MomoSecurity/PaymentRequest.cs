@@ -1,10 +1,8 @@
-﻿using System;
-using System.Security.Cryptography;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 using System.Net;
+using System.Text;
 
-namespace TeduShop.Web.Infrastructure.MomoSecurity
+namespace BookShop.Web.Infrastructure.MomoSecurity
 {
     public class PaymentRequest
     {

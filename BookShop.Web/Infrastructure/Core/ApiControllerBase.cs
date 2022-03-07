@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace TeduShop.Web.Infrastructure.Core
+namespace BookShop.Web.Infrastructure.Core
 {
     public class ApiControllerBase : ApiController
     {

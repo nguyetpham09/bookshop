@@ -1,15 +1,15 @@
 ﻿using BookShop.Common;
 using BookShop.Service;
+using BookShop.Web.Infrastructure.Core;
+using BookShop.Web.Infrastructure.GoShipAPI;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TeduShop.Web.Infrastructure.Core;
-using TeduShop.Web.Infrastructure.GoShipAPI;
 
-namespace TeduShop.Web.Api
+namespace BookShop.Web.Api
 {
 
     [RoutePrefix("api/delivery_partner")]

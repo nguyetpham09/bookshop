@@ -2,6 +2,11 @@
 using BookShop.Common;
 using BookShop.Model.Models;
 using BookShop.Service;
+using BookShop.Web.App_Start;
+using BookShop.Web.Infrastructure.Extensions;
+using BookShop.Web.Infrastructure.GoShipAPI;
+using BookShop.Web.Infrastructure.MomoSecurity;
+using BookShop.Web.Infrastructure.NganLuongAPI;
 using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -12,14 +17,9 @@ using System.Net.Http;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using TeduShop.Common;
-using TeduShop.Web.App_Start;
-using TeduShop.Web.Infrastructure.Extensions;
-using TeduShop.Web.Infrastructure.GoShipAPI;
-using TeduShop.Web.Infrastructure.MomoSecurity;
-using TeduShop.Web.Infrastructure.NganLuongAPI;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Controllers
+namespace BookShop.Web.Controllers
 {
     public class ShoppingCartController : Controller
     {

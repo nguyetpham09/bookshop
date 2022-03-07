@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BookShop.Common;
 using BookShop.Model.Models;
+using BookShop.Web.App_Start;
+using BookShop.Web.Infrastructure.Extensions;
 using BotDetect.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -10,11 +12,9 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using TeduShop.Web.App_Start;
-using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Controllers
+namespace BookShop.Web.Controllers
 {
     public class AccountController : Controller
     {

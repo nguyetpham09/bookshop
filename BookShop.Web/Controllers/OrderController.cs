@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Controllers
+namespace BookShop.Web.Controllers
 {
     public class OrderController : Controller
     {

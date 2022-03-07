@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using BookShop.Model.Models;
 using BookShop.Service;
+using BookShop.Web.Infrastructure.Core;
+using BookShop.Web.Infrastructure.Extensions;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TeduShop.Web.Infrastructure.Core;
-using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Api
+namespace BookShop.Web.Api
 {
     [RoutePrefix("api/postcategory")]
     [Authorize]

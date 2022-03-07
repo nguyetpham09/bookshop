@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BookShop.Model.Models;
 using BookShop.Service;
+using BookShop.Web.Infrastructure.Core;
+using BookShop.Web.Infrastructure.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -9,11 +11,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Script.Serialization;
-using TeduShop.Web.Infrastructure.Core;
-using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Api
+namespace BookShop.Web.Api
 {
     [RoutePrefix("api/productcategory")]
     [Authorize]

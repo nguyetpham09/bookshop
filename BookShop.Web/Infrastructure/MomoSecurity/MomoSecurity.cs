@@ -1,11 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using System.Text.RegularExpressions;
-using TeduShop.Common;
 
-namespace TeduShop.Web.Infrastructure.MomoSecurity
+namespace BookShop.Web.Infrastructure.MomoSecurity
 {
     public class MomoSecurity
     {

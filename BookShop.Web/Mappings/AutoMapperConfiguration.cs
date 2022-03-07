@@ -2,7 +2,7 @@
 using BookShop.Model.Models;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Mappings
+namespace BookShop.Web.Mappings
 {
     public class AutoMapperConfiguration
     {

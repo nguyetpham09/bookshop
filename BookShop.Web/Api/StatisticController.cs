@@ -1,10 +1,10 @@
 ﻿using BookShop.Service;
+using BookShop.Web.Infrastructure.Core;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TeduShop.Web.Infrastructure.Core;
 
-namespace TeduShop.Web.Api
+namespace BookShop.Web.Api
 {
 
     [RoutePrefix("api/statistic")]

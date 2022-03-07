@@ -2,6 +2,8 @@
 using BookShop.Common;
 using BookShop.Model.Models;
 using BookShop.Service;
+using BookShop.Web.Infrastructure.Core;
+using BookShop.Web.Infrastructure.Extensions;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -13,11 +15,9 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Script.Serialization;
-using TeduShop.Web.Infrastructure.Core;
-using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Api
+namespace BookShop.Web.Api
 {
     [RoutePrefix("api/product")]
     [Authorize]

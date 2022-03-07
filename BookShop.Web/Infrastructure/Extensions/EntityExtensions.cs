@@ -2,7 +2,7 @@
 using System;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Infrastructure.Extensions
+namespace BookShop.Web.Infrastructure.Extensions
 {
     public static class EntityExtensions
     {

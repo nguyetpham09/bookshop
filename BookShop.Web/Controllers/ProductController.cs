@@ -2,14 +2,14 @@
 using BookShop.Common;
 using BookShop.Model.Models;
 using BookShop.Service;
+using BookShop.Web.Infrastructure.Core;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using TeduShop.Web.Infrastructure.Core;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Controllers
+namespace BookShop.Web.Controllers
 {
     public class ProductController : Controller
     {

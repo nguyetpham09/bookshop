@@ -9,7 +9,7 @@ using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace TeduShop.Web.App_Start
+namespace BookShop.Web.App_Start
 {
     public class ApplicationUserStore : UserStore<ApplicationUser>
     {

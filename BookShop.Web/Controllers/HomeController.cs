@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using TeduShop.Common;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Controllers
+namespace BookShop.Web.Controllers
 {
     public class HomeController : Controller
     {

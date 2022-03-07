@@ -2,12 +2,12 @@
 using BookShop.Common;
 using BookShop.Model.Models;
 using BookShop.Service;
+using BookShop.Web.Infrastructure.Extensions;
 using BotDetect.Web.Mvc;
 using System.Web.Mvc;
-using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Models;
 
-namespace TeduShop.Web.Controllers
+namespace BookShop.Web.Controllers
 {
     public class ContactController : Controller
     {

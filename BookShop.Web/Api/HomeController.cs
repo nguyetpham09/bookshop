@@ -1,8 +1,8 @@
 ﻿using BookShop.Service;
+using BookShop.Web.Infrastructure.Core;
 using System.Web.Http;
-using TeduShop.Web.Infrastructure.Core;
 
-namespace TeduShop.Web.Api
+namespace BookShop.Web.Api
 {
     [RoutePrefix("api/home")]
     [Authorize]
